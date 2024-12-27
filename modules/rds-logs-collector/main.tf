@@ -116,7 +116,7 @@ resource "aws_lambda_function" "rds_logs_to_s3" {
 
   environment {
     variables = {
-      RDS_PREFIX               = var.rds_prefix
+      RDS_PREFIX               = "${var.rds_prefix}-"
       S3_BUCKET                = aws_s3_bucket.rds_logs.bucket
       TRANSFER_AUDIT_LOGS      = var.transfer_audit_logs
       TRANSFER_ERROR_LOGS      = var.transfer_error_logs

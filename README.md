@@ -41,13 +41,13 @@ graph LR
 
 ```hcl
 module "rds_logs_collector" {
-source = "path/to/terraform-aws-rds-logs-collector/modules/rds-logs-collector"
-s3_bucket_name = "my-rds-logs"
-rds_prefix = "my-rds-"
-transfer_audit_logs = true
-transfer_error_logs = true
-transfer_slow_query_logs = true
-log_retention_days = 395 # 13ヶ月
+    source                   = "../modules/rds-logs-collector"
+    s3_bucket_prefix         = "my-rds-logs"
+    rds_prefix               = "my-rds"
+    transfer_audit_logs      = true
+    transfer_error_logs      = true
+    transfer_slow_query_logs = true
+    log_retention_days       = 395 # 13ヶ月
 }
 ```
 
