@@ -8,7 +8,7 @@ RDSのログ（監査ログ、エラーログ、スロークエリログ）を�
 graph LR
     RDS[RDS Instance] -->|ログ| Lambda[Lambda Function]
     Lambda -->|ログ転送| S3[S3 Bucket]
-    ET[EventBridge]-->|10分毎| Lambda
+    ET[EventBridge]-->|1時間毎| Lambda
     
     subgraph AWS Cloud
         RDS
