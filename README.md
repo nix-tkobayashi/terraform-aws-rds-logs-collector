@@ -6,12 +6,14 @@ RDSのログ（監査ログ、エラーログ、スロークエリログ）を�
 
 ```mermaid
 graph LR
-    RDS[RDS Instance] -->|ログ出力| S3[S3 Bucket]
-    ET[EventBridge]-->|10分毎| Lambda[Lambda Function]
-    Lambda -->|ログ管理| S3
+    RDS[RDS Instance] -->|ログ出力| CW[CloudWatch Logs]
+    CW -->|トリガー| Lambda[Lambda Function]
+    Lambda -->|ログ転送| S3[S3 Bucket]
+    ET[EventBridge]-->|10分毎| Lambda
     
     subgraph AWS Cloud
         RDS
+        CW
         Lambda
         S3
         ET
