@@ -4,11 +4,11 @@ import os
 from io import BytesIO
 from datetime import datetime, timedelta
 
-# 時間範囲の設定 - 実行間隔：10分
+# 時間範囲の設定 - 実行間隔：1時間
 TIME_WINDOW = {
-    'FROM_HOURS_AGO': 0.5,    # 30分前から
-    'TO_HOURS_AGO': 0,        # 現在まで
-    'BUFFER_MINUTES': 5       # 5分のバッファ
+    'FROM_HOURS_AGO': 2,      # 2時間前から
+    'TO_HOURS_AGO': 1,        # 1時間前まで
+    'BUFFER_MINUTES': 10      # 10分のバッファ
 }
 
 def lambda_handler(event, context):

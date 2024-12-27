@@ -134,8 +134,8 @@ resource "aws_cloudwatch_log_group" "lambda_logs" {
 # EventBridge rule
 resource "aws_cloudwatch_event_rule" "lambda_schedule" {
   name                = "rds-logs-to-s3-schedule"
-  description         = "Triggers rds_logs_to_s3 Lambda every 10 minutes"
-  schedule_expression = "rate(10 minutes)"
+  description         = "Triggers rds_logs_to_s3 Lambda every hour"
+  schedule_expression = "rate(1 hour)"
 }
 
 # EventBridge target
